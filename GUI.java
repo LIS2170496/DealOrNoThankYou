@@ -2,8 +2,8 @@ import javax.swing.*;
 
 public class GUI extends JFrame {
     
-    int frameWidth = 750;
-    int frameHeight = 1125;  //width*1.5
+    int frameHeight = 750;
+    int frameWidth = 1125;  //height*1.5
 
     public GUI() {
         super("Deal or No Thank You");
