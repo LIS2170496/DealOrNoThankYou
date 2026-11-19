@@ -1,11 +1,13 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class Cases {
 
     LinkedList<Double> amountsList = new LinkedList<Double>();
 
+    List<Double> gameplayAmountsList;
+
     Cases () {
-        
+
         amountsList.add(0.01);
         amountsList.add(1.00);
         amountsList.add(5.00);
@@ -33,6 +35,10 @@ public class Cases {
         amountsList.add(500000.00);
         amountsList.add(750000.00);
         amountsList.add(1000000.00);
+
+
+        gameplayAmountsList = new ArrayList<>(amountsList);
+        Collections.shuffle(gameplayAmountsList);
     }
 
 
