@@ -7,6 +7,7 @@ public class GUI extends JFrame {
     int frameWidth = 1125;  //height*1.5
 
     JPanel caseContainer;
+    CasePanel case1;
     
 
     public GUI() {
@@ -14,17 +15,10 @@ public class GUI extends JFrame {
         setSize(frameWidth, frameHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        
-
-
-
-        //testing
-        CasePanel case1 = new CasePanel();
-        //case1.setBounds(50,50,100,100);
-        //add(case1);
+    
 
         caseContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        //setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        case1 = new CasePanel();
         caseContainer.add(case1);
         add(caseContainer);
 
