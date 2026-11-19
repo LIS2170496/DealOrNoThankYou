@@ -3,8 +3,9 @@ import java.util.*;
 public class Cases {
 
     LinkedList<Double> amountsList = new LinkedList<Double>();
+    record Case(double amount, String status) {}
+    Case[] gameplayCases = new Case[26];
 
-    List<Double> gameplayAmountsList;
 
     Cases () {
 
@@ -37,9 +38,24 @@ public class Cases {
         amountsList.add(1000000.00);
 
 
-        gameplayAmountsList = new ArrayList<>(amountsList);
-        Collections.shuffle(gameplayAmountsList);
+        this.shuffleCases();
     }
+
+
+
+
+    public void shuffleCases() {
+        List<Double> gameplayAmountsList = new ArrayList<>(amountsList);
+        Collections.shuffle(gameplayAmountsList);
+
+        for (int i = 0; i < gameplayAmountsList.size(); ++i) {
+            Case newCase = new Case(gameplayAmountsList.get(i), "ACTIVE");
+            gameplayCases[i] = newCase;
+        }
+    }
+
+
+
 
 
 }
