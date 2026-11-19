@@ -10,6 +10,7 @@ public class CasePanel extends JPanel {
     CasePanel(String caseString) {
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setBackground(Color.pink);
+        this.setLayout(new GridBagLayout());
         caseNumber = new JLabel(caseString);
         this.add(caseNumber);
     }
