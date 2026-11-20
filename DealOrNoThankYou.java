@@ -4,7 +4,8 @@ import java.awt.*;
 
 public class DealOrNoThankYou extends GUI implements ActionListener {
 
-    int gameRoundNumber = 1;
+    GameRoundOpenCases gameRoundOpenCases;
+    GameRoundBankerOffer gameRoundBankerOffer;
 
 
 
@@ -12,6 +13,8 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
         super();
 
         startButton.addActionListener(this);
+        gameRoundOpenCases = new GameRoundOpenCases();
+        gameRoundBankerOffer = new GameRoundBankerOffer();
     }
 
 
@@ -34,9 +37,14 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             add(caseContainer);
             add(amountContainerL);
             add(amountContainerR);
+            add(currentRoundLabel);
             setVisible(true);
             repaint();
-        }
+
+            gameRoundOpenCases.startRound(gameRoundNumber);
+            }
+
+            
 
 
     }

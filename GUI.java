@@ -5,14 +5,16 @@ public class GUI extends JFrame {
     
     int frameHeight = 750;
     int frameWidth = 1200;  
+    public static int gameRoundNumber = 1;
 
     JLabel welcomeMessage;
     GUIWelcomePanel welcomePanel;
     JButton startButton;
 
-    GUICaseContainer caseContainer;
+    public static GUICaseContainer caseContainer;
     GUIAmountContainerL amountContainerL;
     GUIAmountContainerR amountContainerR;
+    public static JLabel currentRoundLabel;
 
     
 
@@ -39,11 +41,10 @@ public class GUI extends JFrame {
 
         // GAMEPLAY CONTAINERS
         caseContainer = new GUICaseContainer();
-        //add(caseContainer);
         amountContainerL = new GUIAmountContainerL();
-        //add(amountContainerL);
         amountContainerR = new GUIAmountContainerR();
-        //add(amountContainerR);
+        currentRoundLabel = new JLabel("Current Round: " + gameRoundNumber);
+        currentRoundLabel.setBackground(Color.yellow);
 
 
         setVisible(true);
