@@ -4,7 +4,7 @@ import java.awt.*;
 public class GUICaseButton extends JButton {
     
     int panelWidth = 100;
-    int panelHeight = 100;
+    int panelHeight = 75;
     JLabel caseNumber;
 
     GUICaseButton(String caseString) {

@@ -4,7 +4,7 @@ import java.awt.*;
 public class GUIAmountPanel extends JPanel {
     
     int panelWidth = 150;
-    int panelHeight = 40;
+    int panelHeight = 35;
     JLabel amountLabel;
 
     GUIAmountPanel(String amountString) {
