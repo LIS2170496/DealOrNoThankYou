@@ -4,8 +4,10 @@ import java.awt.*;
 
 public class DealOrNoThankYou extends GUI implements ActionListener {
 
+    public static Cases cases;
     GameRoundOpenCases gameRoundOpenCases;
     GameRoundBankerOffer gameRoundBankerOffer;
+    
 
 
 
@@ -13,8 +15,10 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
         super();
 
         startButton.addActionListener(this);
+        cases = new Cases();
         gameRoundOpenCases = new GameRoundOpenCases();
         gameRoundBankerOffer = new GameRoundBankerOffer();
+        
     }
 
 
