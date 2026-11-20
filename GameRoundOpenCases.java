@@ -50,7 +50,6 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                         winningCaseFile.createNewFile();
                         FileOutputStream outgoing = new FileOutputStream(winningCaseFile);
 
-                        //write to file here
                         for (int c = 0; c < winningCaseFileContents.length(); ++c) {
                             outgoing.write(winningCaseFileContents.charAt(c));
                         }
@@ -165,7 +164,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         @Override 
         public void run() {
             timeElapsedSeconds++;
-            if (timeElapsedSeconds >= 5) {
+            if (timeElapsedSeconds >= 60) {
                 JOptionPane.showMessageDialog(null, 
                     "Are you still there?", 
                     "", JOptionPane.PLAIN_MESSAGE);
