@@ -1,9 +1,19 @@
+import javax.swing.JOptionPane;
+
 public class GameRoundOpenCases implements GameRound {
     
     public void startRound(int gameRound) {
-        
+
+        for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
+            DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(true);
+        }
+
         if (gameRound == 1) {
             //player chooses their case
+            JOptionPane.showMessageDialog(null, 
+            "Pick your case", 
+            "Welcome", JOptionPane.PLAIN_MESSAGE);
+            
         }
 
         if (gameRound == 2) {
@@ -29,6 +39,13 @@ public class GameRoundOpenCases implements GameRound {
         if (gameRound >= 12) {
             //player picks 1 cases
         }
+
+        for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
+        DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(false);
+        }
+
+        DealOrNoThankYou.gameRoundNumber = DealOrNoThankYou.gameRoundNumber + 1;
+        DealOrNoThankYou.currentRoundLabel.setText("Current Round: " + DealOrNoThankYou.gameRoundNumber);
 
 
 
