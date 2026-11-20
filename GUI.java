@@ -6,6 +6,8 @@ public class GUI extends JFrame {
     int frameHeight = 750;
     int frameWidth = 1200;  
 
+    GUIWelcomePanel welcomePanel;
+
     GUICaseContainer caseContainer;
     GUIAmountContainerL amountContainerL;
     GUIAmountContainerR amountContainerR;
@@ -19,14 +21,18 @@ public class GUI extends JFrame {
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 
-        caseContainer = new GUICaseContainer();
-        add(caseContainer);
+        // WELCOME SCREEN CONTAINERS
+        welcomePanel = new GUIWelcomePanel();
+        add(welcomePanel);
+        
 
-        amountContainerL = new GUIAmountContainerL();
-        add(amountContainerL);
-
-        amountContainerR = new GUIAmountContainerR();
-        add(amountContainerR);
+        // GAMEPLAY CONTAINERS
+        //caseContainer = new GUICaseContainer();
+        //add(caseContainer);
+        //amountContainerL = new GUIAmountContainerL();
+        //add(amountContainerL);
+        //amountContainerR = new GUIAmountContainerR();
+        //add(amountContainerR);
 
 
         setVisible(true);
