@@ -5,8 +5,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class GUIWelcomePanel extends JPanel {
-    int panelWidth = 1150;
-    int panelHeight = 600;
+    int panelWidth = 1100;
+    int panelHeight = 550;
 
     Image backgroundImage;
 
