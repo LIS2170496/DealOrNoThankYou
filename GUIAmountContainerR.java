@@ -1,10 +1,11 @@
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import java.awt.*;
 
 public class GUIAmountContainerR extends JPanel {
 
     int panelHeight = 750;
-    int panelWidth = 200;  
+    int panelWidth = 160;  
 
     GUIAmountPanel amount14;
     GUIAmountPanel amount15;
@@ -22,7 +23,10 @@ public class GUIAmountContainerR extends JPanel {
 
     GUIAmountContainerR() {
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
-        this.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        //acts as padding (top, left, bottom, right)
+        this.setBorder(BorderFactory.createEmptyBorder(5,0,0,0));
 
 
         amount14 = new GUIAmountPanel("$     1,000");

@@ -4,7 +4,7 @@ import java.awt.*;
 public class GUI extends JFrame {
     
     int frameHeight = 750;
-    int frameWidth = 1250;  
+    int frameWidth = 1200;  
 
     GUICaseContainer caseContainer;
     GUIAmountContainerL amountContainerL;
@@ -16,7 +16,7 @@ public class GUI extends JFrame {
         super("Deal or No Thank You");
         setSize(frameWidth, frameHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        this.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 
         caseContainer = new GUICaseContainer();
