@@ -15,6 +15,7 @@ public class GUICaseContainer extends JPanel {
         caseButtons = new GUICaseButton[26];
         for (int i = 0; i < caseButtons.length; ++i) {
             caseButtons[i] = new GUICaseButton("" + (i + 1));
+            caseButtons[i].setEnabled(false);
             this.add(caseButtons[i]);
         }
 
