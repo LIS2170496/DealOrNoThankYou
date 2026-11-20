@@ -29,19 +29,19 @@ public class GUIAmountContainerR extends JPanel {
         this.setBorder(BorderFactory.createEmptyBorder(5,0,0,0));
 
 
-        amount14 = new GUIAmountPanel("$     1,000");
-        amount15 = new GUIAmountPanel("$     5,000");
-        amount16 = new GUIAmountPanel("$    10,000");
-        amount17 = new GUIAmountPanel("$    25,000");
-        amount18 = new GUIAmountPanel("$    50,000");
-        amount19 = new GUIAmountPanel("$    75,000");
-        amount20 = new GUIAmountPanel("$   100,000");
-        amount21 = new GUIAmountPanel("$   200,000");
-        amount22 = new GUIAmountPanel("$   300,000");
-        amount23 = new GUIAmountPanel("$   400,000");
-        amount24 = new GUIAmountPanel("$   500,000");
-        amount25 = new GUIAmountPanel("$   750,000");
-        amount26 = new GUIAmountPanel("$ 1,000,000");
+        amount14 = new GUIAmountPanel("$     1,000",1000.00);
+        amount15 = new GUIAmountPanel("$     5,000",5000.00);
+        amount16 = new GUIAmountPanel("$    10,000",10000.00);
+        amount17 = new GUIAmountPanel("$    25,000",25000.00);
+        amount18 = new GUIAmountPanel("$    50,000",50000.00);
+        amount19 = new GUIAmountPanel("$    75,000",75000.00);
+        amount20 = new GUIAmountPanel("$   100,000",100000.00);
+        amount21 = new GUIAmountPanel("$   200,000",200000.00);
+        amount22 = new GUIAmountPanel("$   300,000",300000.00);
+        amount23 = new GUIAmountPanel("$   400,000",400000.00);
+        amount24 = new GUIAmountPanel("$   500,000",500000.00);
+        amount25 = new GUIAmountPanel("$   750,000",750000.00);
+        amount26 = new GUIAmountPanel("$ 1,000,000",1000000.00);
 
 
         this.add(amount14);
