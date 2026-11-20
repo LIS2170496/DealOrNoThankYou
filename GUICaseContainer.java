@@ -35,7 +35,7 @@ public class GUICaseContainer extends JPanel {
 
     GUICaseContainer() {
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         case1 = new GUICasePanel("1");
         case2 = new GUICasePanel("2");
