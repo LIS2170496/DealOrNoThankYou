@@ -26,19 +26,19 @@ public class GUIAmountContainerL extends JPanel {
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
 
-        amount1 = new GUIAmountPanel("$0.01");
-        amount2 = new GUIAmountPanel("$1");
-        amount3 = new GUIAmountPanel("$5");
-        amount4 = new GUIAmountPanel("$10");
-        amount5 = new GUIAmountPanel("$25");
-        amount6 = new GUIAmountPanel("$50");
-        amount7 = new GUIAmountPanel("$75");
-        amount8 = new GUIAmountPanel("$100");
-        amount9 = new GUIAmountPanel("$200");
-        amount10 = new GUIAmountPanel("$300");
-        amount11 = new GUIAmountPanel("$400");
-        amount12 = new GUIAmountPanel("$500");
-        amount13 = new GUIAmountPanel("$750");
+        amount1 = new GUIAmountPanel("$     0.01");
+        amount2 = new GUIAmountPanel("$         1");
+        amount3 = new GUIAmountPanel("$         5");
+        amount4 = new GUIAmountPanel("$        10");
+        amount5 = new GUIAmountPanel("$        25");
+        amount6 = new GUIAmountPanel("$        50");
+        amount7 = new GUIAmountPanel("$        75");
+        amount8 = new GUIAmountPanel("$       100");
+        amount9 = new GUIAmountPanel("$       200");
+        amount10 = new GUIAmountPanel("$       300");
+        amount11 = new GUIAmountPanel("$       400");
+        amount12 = new GUIAmountPanel("$       500");
+        amount13 = new GUIAmountPanel("$       750");
 
 
         this.add(amount1);
