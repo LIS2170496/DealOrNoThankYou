@@ -1,13 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class GUICasePanel extends JPanel {
+public class GUICaseButton extends JButton {
     
     int panelWidth = 100;
     int panelHeight = 100;
     JLabel caseNumber;
 
-    GUICasePanel(String caseString) {
+    GUICaseButton(String caseString) {
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setBackground(Color.decode("#c1c0c3"));
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
