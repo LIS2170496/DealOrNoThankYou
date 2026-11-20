@@ -2,6 +2,7 @@ import javax.swing.JOptionPane;
 import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.io.*;
 
 public class GameRoundOpenCases implements GameRound, ActionListener {
 
@@ -9,6 +10,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
     int numCasesOpened;
     int timeElapsedSeconds;
     Timer timer;
+    
 
 
 
@@ -36,8 +38,41 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                     "You chose case #" + (i + 1), 
                     "", JOptionPane.PLAIN_MESSAGE);
 
-                // add if round is 1, write value to file
-                // else message dialog, are you ready to see what is in your case?
+
+                // For round 1, write case value to file
+                if (DealOrNoThankYou.gameRoundNumber == 1) {
+                    try {
+                        String winningCaseFileContents = 
+                            "Your chosen case is valued at: $" + 
+                            DealOrNoThankYou.cases.getCaseValue(i);
+
+                        File winningCaseFile = new File("TOPSECRET.txt");
+                        winningCaseFile.createNewFile();
+                        FileOutputStream outgoing = new FileOutputStream(winningCaseFile);
+
+                        //write to file here
+                        for (int c = 0; c < winningCaseFileContents.length(); ++c) {
+                            outgoing.write(winningCaseFileContents.charAt(c));
+                        }
+
+                        outgoing.flush();
+                        outgoing.close();
+
+                    }
+                    catch (IOException exception) {
+                        JOptionPane.showMessageDialog(null,
+                            exception.getMessage(),
+                            "ERROR", JOptionPane.PLAIN_MESSAGE);
+                        
+                    }
+
+                    
+
+                }
+
+                
+                // All other rounds
+                // show message dialog, are you ready to see what is in your case?
                 // display case value
                 // inactivate amountpanel for that value
 
@@ -58,9 +93,6 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
 
     public void startRound(int gameRound) {
-
-        
-
 
         for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
             if(DealOrNoThankYou.cases.getCaseStatus(i).equals("ACTIVE")) {
