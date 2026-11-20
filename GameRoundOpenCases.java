@@ -1,7 +1,58 @@
 import javax.swing.JOptionPane;
+import java.awt.event.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class GameRoundOpenCases implements GameRound {
+public class GameRoundOpenCases implements GameRound, ActionListener {
+
+    int numCasesToOpen;
+    int numCasesOpened;
+    int timeElapsedSeconds;
+    Timer timer;
+
+    TimerTask stillThere = new TimerTask() {
+        @Override 
+        public void run() {
+            timeElapsedSeconds++;
+            if (timeElapsedSeconds >= 5) {
+                JOptionPane.showMessageDialog(null, 
+                    "Are you still there?", 
+                    "", JOptionPane.PLAIN_MESSAGE);
+                timeElapsedSeconds = 0;
+            }
+        }
+    };
+
+
+
+    public GameRoundOpenCases() {
+        for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
+            DealOrNoThankYou.caseContainer.caseButtons[i].addActionListener(this);
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+
+        timer.cancel();
+
+        JOptionPane.showMessageDialog(null, 
+            "BUTTON CLICKED", 
+            "", JOptionPane.PLAIN_MESSAGE);
+        
+        numCasesOpened = numCasesOpened + 1;
+        
+        if (numCasesOpened == numCasesToOpen) {
+            completeRound();
+        }
+        
+
+    }
     
+
+
+
+
     public void startRound(int gameRound) {
 
         for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
@@ -13,42 +64,57 @@ public class GameRoundOpenCases implements GameRound {
             JOptionPane.showMessageDialog(null, 
             "Pick your case", 
             "Welcome", JOptionPane.PLAIN_MESSAGE);
+
+            numCasesToOpen = 1;
+            numCasesOpened = 0;
+            timeElapsedSeconds = 0;
+            timer = new Timer();
+
+            while (numCasesOpened < 1) {
+                while (timeElapsedSeconds < 60 && numCasesOpened < 1) {
+                    timer.scheduleAtFixedRate(stillThere, 0, 1000);
+                }
+            }
+            
             
         }
 
         if (gameRound == 2) {
-            //player picks 6 cases
+            numCasesToOpen = 6;
         }
 
         if (gameRound == 4) {
-            //player picks 5 cases
+            numCasesToOpen = 5;
         }
 
         if (gameRound == 6) {
-            //player picks 4 cases
+            numCasesToOpen = 4;
         }
 
         if (gameRound == 8) {
-            //player picks 3 cases
+            numCasesToOpen = 3;
         }
 
         if (gameRound == 10) {
-            //player picks 2 cases
+            numCasesToOpen = 2;
         }
 
         if (gameRound >= 12) {
-            //player picks 1 cases
+            numCasesToOpen = 1;
         }
+    }
 
+
+
+    public void completeRound() {
         for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
         DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(false);
         }
 
         DealOrNoThankYou.gameRoundNumber = DealOrNoThankYou.gameRoundNumber + 1;
         DealOrNoThankYou.currentRoundLabel.setText("Current Round: " + DealOrNoThankYou.gameRoundNumber);
-
-
-
     }
+
+
 
 }
