@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.*;
 
 public class Cases {
@@ -5,6 +6,7 @@ public class Cases {
     LinkedList<Double> amountsList = new LinkedList<Double>();
     record Case(double amount, String status) {}
     Case[] gameplayCases = new Case[26];
+    List<Double> gameplayAmountsList;
 
 
     Cases () {
@@ -37,21 +39,43 @@ public class Cases {
         amountsList.add(750000.00);
         amountsList.add(1000000.00);
 
+        gameplayAmountsList = new ArrayList<>(amountsList);
+
 
         this.shuffleCases();
+
+        
     }
 
 
 
 
     public void shuffleCases() {
-        List<Double> gameplayAmountsList = new ArrayList<>(amountsList);
+        
         Collections.shuffle(gameplayAmountsList);
 
         for (int i = 0; i < gameplayAmountsList.size(); ++i) {
             Case newCase = new Case(gameplayAmountsList.get(i), "ACTIVE");
             gameplayCases[i] = newCase;
         }
+
+    }
+
+
+    public void inactivateCase(int i) {
+        Case newCase = new Case(gameplayAmountsList.get(i), "INACTIVE");
+        gameplayCases[i] = newCase;
+        DealOrNoThankYou.caseContainer.caseButtons[i].setBackground(Color.DARK_GRAY);
+
+    }
+
+
+    public String getCaseStatus(int i) {
+        return gameplayCases[i].status;
+    }
+
+    public double getCaseValue(int i) {
+        return gameplayCases[i].amount();
     }
 
 
