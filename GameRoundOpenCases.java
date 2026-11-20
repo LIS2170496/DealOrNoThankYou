@@ -10,18 +10,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
     int timeElapsedSeconds;
     Timer timer;
 
-    TimerTask stillThere = new TimerTask() {
-        @Override 
-        public void run() {
-            timeElapsedSeconds++;
-            if (timeElapsedSeconds >= 5) {
-                JOptionPane.showMessageDialog(null, 
-                    "Are you still there?", 
-                    "", JOptionPane.PLAIN_MESSAGE);
-                timeElapsedSeconds = 0;
-            }
-        }
-    };
+
 
 
 
@@ -34,12 +23,27 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
 
+        //Object source = event.getSource();
+
         timer.cancel();
 
-        JOptionPane.showMessageDialog(null, 
-            "BUTTON CLICKED", 
-            "", JOptionPane.PLAIN_MESSAGE);
-        
+        for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
+            if (event.getSource() == DealOrNoThankYou.caseContainer.caseButtons[i]) {
+
+                DealOrNoThankYou.cases.inactivateCase(i);
+
+                JOptionPane.showMessageDialog(null, 
+                    "You chose case #" + (i + 1), 
+                    "", JOptionPane.PLAIN_MESSAGE);
+
+                // add if round is 1, write value to file
+                // else message dialog, are you ready to see what is in your case?
+                // display case value
+                // inactivate amountpanel for that value
+
+            }
+        }
+
         numCasesOpened = numCasesOpened + 1;
         
         if (numCasesOpened == numCasesToOpen) {
@@ -55,15 +59,21 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
     public void startRound(int gameRound) {
 
+        
+
+
         for (int i = 0; i < DealOrNoThankYou.caseContainer.caseButtons.length; ++i) {
-            DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(true);
+            if(DealOrNoThankYou.cases.getCaseStatus(i).equals("ACTIVE")) {
+                DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(true);
+            }
         }
 
         if (gameRound == 1) {
             //player chooses their case
             JOptionPane.showMessageDialog(null, 
-            "Pick your case", 
-            "Welcome", JOptionPane.PLAIN_MESSAGE);
+                "Pick your case", 
+                "Welcome", 
+                JOptionPane.PLAIN_MESSAGE);
 
             numCasesToOpen = 1;
             numCasesOpened = 0;
@@ -114,6 +124,23 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         DealOrNoThankYou.gameRoundNumber = DealOrNoThankYou.gameRoundNumber + 1;
         DealOrNoThankYou.currentRoundLabel.setText("Current Round: " + DealOrNoThankYou.gameRoundNumber);
     }
+
+
+
+
+
+    TimerTask stillThere = new TimerTask() {
+        @Override 
+        public void run() {
+            timeElapsedSeconds++;
+            if (timeElapsedSeconds >= 5) {
+                JOptionPane.showMessageDialog(null, 
+                    "Are you still there?", 
+                    "", JOptionPane.PLAIN_MESSAGE);
+                timeElapsedSeconds = 0;
+            }
+        }
+    };
 
 
 
