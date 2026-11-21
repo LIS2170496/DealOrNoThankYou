@@ -17,8 +17,8 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
 
         startButton.addActionListener(this);
         cases = new Cases();
-        gameRoundOpenCases = new GameRoundOpenCases();
-        gameRoundBankerOffer = new GameRoundBankerOffer();
+        gameRoundOpenCases = new GameRoundOpenCases(this);
+        gameRoundBankerOffer = new GameRoundBankerOffer(this);
         
     }
 
@@ -46,21 +46,28 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             setVisible(true);
             repaint();
 
-            while (gameInSession) {
-                if (gameRoundNumber == 1  ||  gameRoundNumber == 2) {
-                    gameRoundOpenCases.startRound(gameRoundNumber);
-                }
-                else if (gameRoundNumber == 3) {
-                    gameRoundBankerOffer.startRound(gameRoundNumber);
-                }
+            startGameRound();
             }
+    }
 
 
-            }
+    public void startGameRound() {
+        if (gameRoundNumber == 1  ||  gameRoundNumber == 2) {
+            gameRoundOpenCases.startRound(gameRoundNumber);
+        }
+        else if (gameRoundNumber == 3) {
+            gameRoundBankerOffer.startRound(gameRoundNumber);
+        }
+    }
 
-            
 
+    public void roundFinished() {
+        gameRoundNumber++;
+        currentRoundLabel.setText("Current Round: " + gameRoundNumber);
 
+        if (gameInSession) {
+            startGameRound();
+        }
     }
 
 

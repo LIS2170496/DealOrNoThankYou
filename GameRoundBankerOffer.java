@@ -1,4 +1,10 @@
 public class GameRoundBankerOffer implements GameRound {
+
+    DealOrNoThankYou currentGame;
+
+    public GameRoundBankerOffer(DealOrNoThankYou currentGame) {
+        this.currentGame = currentGame;
+    }
     
     public void startRound(int gameRound) {
         
