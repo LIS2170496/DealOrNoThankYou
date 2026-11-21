@@ -13,6 +13,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
     int timeElapsedSeconds;
     DealOrNoThankYou currentGame;
     NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+    int chosenCaseIndex;
 
 
     public GameRoundOpenCases(DealOrNoThankYou currentGame) {
@@ -37,6 +38,9 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                 JOptionPane.showMessageDialog(null, 
                     "You chose case #" + (i + 1), 
                     "", JOptionPane.PLAIN_MESSAGE);
+                
+                chosenCaseIndex = i;
+                DealOrNoThankYou.gameRoundBankerOffer.totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(i);
 
 
                 // For round 1, write case value to file
@@ -155,22 +159,47 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         if (gameRound == 4) {
             numCasesToOpen = 5;
+
+            JOptionPane.showMessageDialog(null, 
+                "Pick " + numCasesToOpen + " cases", 
+                "", 
+                JOptionPane.PLAIN_MESSAGE);
         }
 
         if (gameRound == 6) {
             numCasesToOpen = 4;
+
+            JOptionPane.showMessageDialog(null, 
+                "Pick " + numCasesToOpen + " cases", 
+                "", 
+                JOptionPane.PLAIN_MESSAGE);
         }
 
         if (gameRound == 8) {
             numCasesToOpen = 3;
+
+            JOptionPane.showMessageDialog(null, 
+                "Pick " + numCasesToOpen + " cases", 
+                "", 
+                JOptionPane.PLAIN_MESSAGE);
         }
 
         if (gameRound == 10) {
             numCasesToOpen = 2;
+
+            JOptionPane.showMessageDialog(null, 
+                "Pick " + numCasesToOpen + " cases", 
+                "", 
+                JOptionPane.PLAIN_MESSAGE);
         }
 
         if (gameRound >= 12) {
             numCasesToOpen = 1;
+
+            JOptionPane.showMessageDialog(null, 
+                "Pick " + numCasesToOpen + " case", 
+                "", 
+                JOptionPane.PLAIN_MESSAGE);
         }
     }
 
