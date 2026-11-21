@@ -11,6 +11,7 @@ public class GameRoundBankerOffer implements GameRound {
     NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
     int playerChoice;
     boolean acceptOffer;
+    int numCasesToOpenNextRound;
 
     public GameRoundBankerOffer(DealOrNoThankYou currentGame) {
         this.currentGame = currentGame;
@@ -42,14 +43,72 @@ public class GameRoundBankerOffer implements GameRound {
             "There is " + currencyFormat.format(totalActiveAmount) + " active across " + totalActiveCount + " cases.", 
             "", 
             JOptionPane.PLAIN_MESSAGE);
+
+
+        // if (gameRound == 3) {
+        //     numCasesToOpenNextRound = 5;
+        // }
+
+        switch (gameRound) {
+            case 3:
+                numCasesToOpenNextRound = 5;
+                break;
+            case 5:
+                numCasesToOpenNextRound = 4;
+                break;
+            case 7:
+                numCasesToOpenNextRound = 3;
+                break;
+            case 9:
+                numCasesToOpenNextRound = 2;
+                break;
+            case 11:
+                numCasesToOpenNextRound = 1;
+                break;
+            case 13:
+                numCasesToOpenNextRound = 1;
+                break;
+            case 15:
+                numCasesToOpenNextRound = 1;
+                break;
+            case 17:
+                numCasesToOpenNextRound = 1;
+                break;
+            case 19:
+                numCasesToOpenNextRound = 1;
+                break;
+
+        }
         
+        
+        if (numCasesToOpenNextRound == 1) {
+            playerChoice = JOptionPane.showConfirmDialog(null, 
+                "The banker would like to buy your case for " + currencyFormat.format(currentOffer) + "." + 
+                "\n" + 
+                "If you decline, you will need to open " + numCasesToOpenNextRound + " case in the next round." +
+                "\n" + 
+                "\n" + 
+                "Do you accept the banker's offer?",
+                "",
+                JOptionPane.YES_NO_OPTION);
+        } 
+        else {
+            playerChoice = JOptionPane.showConfirmDialog(null, 
+                "The banker would like to buy your case for " + currencyFormat.format(currentOffer) + "." + 
+                "\n" + 
+                "If you decline, you will need to open " + numCasesToOpenNextRound + " cases in the next round." +
+                "\n" + 
+                "\n" + 
+                "Do you accept the banker's offer?", 
+                "",
+                JOptionPane.YES_NO_OPTION);
+        }
+
         
 
-        playerChoice = JOptionPane.showConfirmDialog(null, 
-            "The banker would like to buy your case for " + currencyFormat.format(currentOffer) + ".\n" + 
-            "Do you accept?", 
-            "", 
-            JOptionPane.YES_NO_OPTION);
+
+
+
         
         if (playerChoice == JOptionPane.YES_OPTION) {
             acceptOffer = true;
