@@ -1,6 +1,8 @@
 import javax.swing.JOptionPane;
 import java.awt.event.*;
 import java.io.*;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class GameRoundOpenCases implements GameRound, ActionListener {
 
@@ -8,6 +10,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
     int numCasesOpened;
     int timeElapsedSeconds;
     DealOrNoThankYou currentGame;
+    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 
     public GameRoundOpenCases(DealOrNoThankYou currentGame) {
@@ -70,7 +73,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                         "", JOptionPane.PLAIN_MESSAGE);
 
                     JOptionPane.showMessageDialog(null, 
-                        "This case is worth: $" + DealOrNoThankYou.cases.getCaseValue(i), 
+                        "This case is worth: " + currencyFormat.format(DealOrNoThankYou.cases.getCaseValue(i)), 
                         "", JOptionPane.PLAIN_MESSAGE);
 
                     //FIXME - inactivate amountpanel for that value
@@ -110,7 +113,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                 DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(true);
             }
         }
-        
+
 
         if (gameRound == 1) {
             //player chooses their case
