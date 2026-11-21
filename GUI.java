@@ -11,6 +11,7 @@ public class GUI extends JFrame {
     GUIWelcomePanel welcomePanel;
     JButton startButton;
 
+    public static Cases cases = new Cases();
     public static GUICaseContainer caseContainer;
     GUIAmountContainerL amountContainerL;
     GUIAmountContainerR amountContainerR;

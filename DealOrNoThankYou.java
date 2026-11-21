@@ -4,19 +4,15 @@ import java.awt.*;
 
 public class DealOrNoThankYou extends GUI implements ActionListener {
 
-    public static Cases cases;
     GameRoundOpenCases gameRoundOpenCases;
     GameRoundBankerOffer gameRoundBankerOffer;
     boolean gameInSession = true;
     
 
 
-
     public DealOrNoThankYou() {
         super();
-
         startButton.addActionListener(this);
-        cases = new Cases();
         gameRoundOpenCases = new GameRoundOpenCases(this);
         gameRoundBankerOffer = new GameRoundBankerOffer(this);
         
