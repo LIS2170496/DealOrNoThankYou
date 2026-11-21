@@ -67,6 +67,9 @@ public class Cases {
         gameplayCases[i] = newCase;
         DealOrNoThankYou.caseContainer.caseButtons[i].setBackground(Color.DARK_GRAY);
 
+        //update fix bug - when clicked on case, inactivate includes removing ability to click button
+        DealOrNoThankYou.caseContainer.caseButtons[i].setEnabled(false);
+
     }
 
 
