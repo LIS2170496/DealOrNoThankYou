@@ -6,8 +6,8 @@ import java.util.Locale;
 
 public class GUIAmountContainerL extends JPanel {
 
-    int panelHeight = 750;
-    int panelWidth = 160;  
+    int panelHeight = 675;
+    int panelWidth = 152;  
     GUIAmountPanel[] amountPanels;
 
 

@@ -33,12 +33,51 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             remove(startButton);
             repaint();
 
-            setLayout(new FlowLayout(FlowLayout.LEFT));
 
-            add(caseContainer);
-            add(amountContainerL);
-            add(amountContainerR);
-            add(currentRoundLabel);
+            GridBagLayout playingLayout = new GridBagLayout();
+            setLayout(playingLayout);
+            GridBagConstraints c = new GridBagConstraints();
+            c.fill = GridBagConstraints.BOTH;
+
+            //LEFT
+            c.gridx = 0;
+            c.gridy = 0;
+            c.weightx = 0.66;
+            c.weighty = 0.9;
+            add(caseContainer, c);
+
+            //MIDDLE
+            c = new GridBagConstraints();
+            c.gridx = 1;
+            c.gridy = 0;
+            c.weightx = 0.12;
+            c.weighty = 0.9;
+            c.fill = GridBagConstraints.BOTH;
+            c.insets = new Insets(0,25,0,0);
+            add(amountContainerL, c);
+
+            //RIGHT
+            c = new GridBagConstraints();
+            c.gridx = 2;
+            c.gridy = 0;
+            c.weightx = 0.12;
+            c.weighty = 0.9;
+            c.fill = GridBagConstraints.BOTH;
+            add(amountContainerR, c);
+
+            //ROW 2
+            c = new GridBagConstraints();
+            c.gridx = 0;
+            c.gridy = 1;
+            c.weightx = 0.66;
+            c.weighty = 0.1;
+            c.fill = GridBagConstraints.BOTH;
+            c.insets = new Insets(10,10,10,0);
+            add(currentRoundLabel, c);
+
+
+
+            
             setVisible(true);
             repaint();
 
