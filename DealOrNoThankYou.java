@@ -7,6 +7,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
     public static Cases cases;
     GameRoundOpenCases gameRoundOpenCases;
     GameRoundBankerOffer gameRoundBankerOffer;
+    boolean gameInSession = true;
     
 
 
@@ -45,7 +46,16 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             setVisible(true);
             repaint();
 
-            gameRoundOpenCases.startRound(gameRoundNumber);
+            while (gameInSession) {
+                if (gameRoundNumber == 1  ||  gameRoundNumber == 2) {
+                    gameRoundOpenCases.startRound(gameRoundNumber);
+                }
+                else if (gameRoundNumber == 3) {
+                    gameRoundBankerOffer.startRound(gameRoundNumber);
+                }
+            }
+
+
             }
 
             
