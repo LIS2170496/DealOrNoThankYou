@@ -17,12 +17,8 @@ public class GameRoundBankerOffer implements GameRound {
     }
     
     public void startRound(int gameRound) {
-        //totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex);
-
-        JOptionPane.showMessageDialog(null, 
-            "chosenCaseIndex value formula check: " + totalActiveAmount, 
-            "", 
-            JOptionPane.PLAIN_MESSAGE);
+        //start at count 1 and value of player's case
+        totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex);
         totalActiveCount = 1;
         
 

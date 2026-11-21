@@ -55,8 +55,11 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             gameRoundNumber == 16  ||  gameRoundNumber == 18) {
             gameRoundOpenCases.startRound(gameRoundNumber);
         }
-        else if ((gameRoundNumber % 2) == 1) {
+        else if ((gameRoundNumber % 2) == 1  &&  gameRoundNumber < 20) {
             gameRoundBankerOffer.startRound(gameRoundNumber);
+        }
+        else if (gameRoundNumber == 20) {
+            //ADD FINAL ROUND
         }
     }
 

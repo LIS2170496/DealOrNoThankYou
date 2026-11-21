@@ -39,12 +39,13 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                     "You chose case #" + (i + 1), 
                     "", JOptionPane.PLAIN_MESSAGE);
                 
-                chosenCaseIndex = i;
-                DealOrNoThankYou.gameRoundBankerOffer.totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(i);
+
 
 
                 // For round 1, write case value to file
                 if (DealOrNoThankYou.gameRoundNumber == 1) {
+                    chosenCaseIndex = i;
+                    //DealOrNoThankYou.gameRoundBankerOffer.totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(i);
                     try {
                         String winningCaseFileContents = 
                             "Your chosen case is valued at: $" + 
