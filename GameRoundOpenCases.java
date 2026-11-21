@@ -9,6 +9,7 @@ import java.awt.Color;
 public class GameRoundOpenCases implements GameRound, ActionListener {
 
     int numCasesToOpen;
+    int numCasesLeftToOpen;
     int numCasesOpened;
     int timeElapsedSeconds;
     DealOrNoThankYou currentGame;
@@ -116,6 +117,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         }
 
         numCasesOpened = numCasesOpened + 1;
+        numCasesLeftToOpen = numCasesLeftToOpen - 1;
         
         if (numCasesOpened == numCasesToOpen) {
             completeRound();
@@ -146,11 +148,13 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                 JOptionPane.PLAIN_MESSAGE);
 
             numCasesToOpen = 1;
+            numCasesLeftToOpen = numCasesToOpen;
         }
 
         if (gameRound == 2) {
 
             numCasesToOpen = 6;
+            numCasesLeftToOpen = numCasesToOpen;
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -160,6 +164,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         if (gameRound == 4) {
             numCasesToOpen = 5;
+            numCasesLeftToOpen = numCasesToOpen;
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -169,6 +174,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         if (gameRound == 6) {
             numCasesToOpen = 4;
+            numCasesLeftToOpen = numCasesToOpen;
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -178,6 +184,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         if (gameRound == 8) {
             numCasesToOpen = 3;
+            numCasesLeftToOpen = numCasesToOpen;
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -187,6 +194,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         if (gameRound == 10) {
             numCasesToOpen = 2;
+            numCasesLeftToOpen = numCasesToOpen;
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -196,6 +204,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         if (gameRound >= 12) {
             numCasesToOpen = 1;
+            numCasesLeftToOpen = numCasesToOpen;
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " case", 
