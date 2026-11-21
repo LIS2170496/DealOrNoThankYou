@@ -39,41 +39,55 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             GridBagConstraints c = new GridBagConstraints();
             c.fill = GridBagConstraints.BOTH;
 
-            //LEFT
+            //ROW 1 - LEFT
             c.gridx = 0;
             c.gridy = 0;
             c.weightx = 0.66;
-            c.weighty = 0.9;
+            c.weighty = 0.8;
             add(caseContainer, c);
 
-            //MIDDLE
+            //ROW 1 - MIDDLE
             c = new GridBagConstraints();
             c.gridx = 1;
             c.gridy = 0;
             c.weightx = 0.12;
-            c.weighty = 0.9;
+            c.weighty = 0.8;
             c.fill = GridBagConstraints.BOTH;
             c.insets = new Insets(0,25,0,0);
             add(amountContainerL, c);
 
-            //RIGHT
+            //ROW 1 - RIGHT
             c = new GridBagConstraints();
             c.gridx = 2;
             c.gridy = 0;
             c.weightx = 0.12;
-            c.weighty = 0.9;
+            c.weighty = 0.8;
             c.fill = GridBagConstraints.BOTH;
             add(amountContainerR, c);
 
-            //ROW 2
+
+            //ROW 
             c = new GridBagConstraints();
             c.gridx = 0;
             c.gridy = 1;
-            c.weightx = 0.66;
+            c.weightx = 0.2;
             c.weighty = 0.1;
             c.fill = GridBagConstraints.BOTH;
-            c.insets = new Insets(10,10,10,0);
+            c.insets = new Insets(0,10,10,0);
+            add(casesLeftToOpenLabel, c);
+
+
+            //ROW 
+            c = new GridBagConstraints();
+            c.gridx = 0;
+            c.gridy = 2;
+            c.weightx = 0.2;
+            c.weighty = 0.1;
+            c.fill = GridBagConstraints.BOTH;
+            c.insets = new Insets(0,10,10,0);
             add(currentRoundLabel, c);
+
+            
 
 
 

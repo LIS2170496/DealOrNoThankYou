@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class GUIAmountContainerR extends JPanel {
 
-    int panelHeight = 675;
+    int panelHeight = 600;
     int panelWidth = 152;  
     GUIAmountPanel[] amountPanels;
 

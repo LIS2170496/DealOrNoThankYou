@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class GUICaseContainer extends JPanel {
 
-    int panelHeight = 675;
+    int panelHeight = 600;
     int panelWidth = 675;  
 
     GUICaseButton[] caseButtons;

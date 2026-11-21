@@ -118,8 +118,11 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
         numCasesOpened = numCasesOpened + 1;
         numCasesLeftToOpen = numCasesLeftToOpen - 1;
+
+        DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
         
         if (numCasesOpened == numCasesToOpen) {
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("");
             completeRound();
         }
         
@@ -155,6 +158,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
             numCasesToOpen = 6;
             numCasesLeftToOpen = numCasesToOpen;
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -165,6 +169,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         if (gameRound == 4) {
             numCasesToOpen = 5;
             numCasesLeftToOpen = numCasesToOpen;
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -175,6 +180,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         if (gameRound == 6) {
             numCasesToOpen = 4;
             numCasesLeftToOpen = numCasesToOpen;
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -185,6 +191,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         if (gameRound == 8) {
             numCasesToOpen = 3;
             numCasesLeftToOpen = numCasesToOpen;
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -195,6 +202,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         if (gameRound == 10) {
             numCasesToOpen = 2;
             numCasesLeftToOpen = numCasesToOpen;
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " cases", 
@@ -205,6 +213,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         if (gameRound >= 12) {
             numCasesToOpen = 1;
             numCasesLeftToOpen = numCasesToOpen;
+            DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
                 "Pick " + numCasesToOpen + " case", 
