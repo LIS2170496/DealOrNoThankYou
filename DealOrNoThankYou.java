@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class DealOrNoThankYou extends GUI implements ActionListener {
 
-    GameRoundOpenCases gameRoundOpenCases;
-    GameRoundBankerOffer gameRoundBankerOffer;
-    boolean gameInSession = true;
+    public static GameRoundOpenCases gameRoundOpenCases;
+    public static GameRoundBankerOffer gameRoundBankerOffer;
+    public static boolean gameInSession = true;
     
 
 
@@ -48,10 +48,14 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
 
 
     public void startGameRound() {
-        if (gameRoundNumber == 1  ||  gameRoundNumber == 2) {
+        if (gameRoundNumber == 1   ||  gameRoundNumber == 2   || 
+            gameRoundNumber == 4   ||  gameRoundNumber == 6   || 
+            gameRoundNumber == 8   ||  gameRoundNumber == 10  || 
+            gameRoundNumber == 12  ||  gameRoundNumber == 14  || 
+            gameRoundNumber == 16  ||  gameRoundNumber == 18) {
             gameRoundOpenCases.startRound(gameRoundNumber);
         }
-        else if (gameRoundNumber == 3) {
+        else if ((gameRoundNumber % 2) == 1) {
             gameRoundBankerOffer.startRound(gameRoundNumber);
         }
     }
