@@ -1,8 +1,10 @@
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import java.awt.event.*;
 import java.io.*;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.awt.Color;
 
 public class GameRoundOpenCases implements GameRound, ActionListener {
 
@@ -76,14 +78,30 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                         "This case is worth: " + currencyFormat.format(DealOrNoThankYou.cases.getCaseValue(i)), 
                         "", JOptionPane.PLAIN_MESSAGE);
 
-                    //FIXME - inactivate amountpanel for that value
 
-                    // if (DealOrNoThankYou.cases.getCaseValue(i) <= 750.0) {
 
-                    // }
-                    // else {
 
-                    // }
+                    //inactivate amountpanel for value of case chosen
+
+                    if (DealOrNoThankYou.cases.getCaseValue(i) <= 750.0) {
+                        for (int a = 0; a < 13; ++a) {
+                            if (DealOrNoThankYou.amountContainerL.amountPanels[a].amountValue 
+                                == DealOrNoThankYou.cases.getCaseValue(i)) {
+                                    DealOrNoThankYou.amountContainerL.amountPanels[a].setBackground(Color.DARK_GRAY);
+                                    DealOrNoThankYou.amountContainerL.amountPanels[a].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+                            }
+                        }
+                    }
+                    else if (DealOrNoThankYou.cases.getCaseValue(i) > 750.0){
+                        for (int a = 0; a < 13; ++a) {
+                            if (DealOrNoThankYou.amountContainerR.amountPanels[a].amountValue 
+                                == DealOrNoThankYou.cases.getCaseValue(i)) {
+                                    DealOrNoThankYou.amountContainerR.amountPanels[a].setBackground(Color.DARK_GRAY);
+                                    DealOrNoThankYou.amountContainerR.amountPanels[a].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+                            }
+                        }
+
+                    }
 
                 }
 

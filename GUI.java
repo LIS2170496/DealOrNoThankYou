@@ -13,8 +13,8 @@ public class GUI extends JFrame {
 
     public static Cases cases = new Cases();
     public static GUICaseContainer caseContainer;
-    GUIAmountContainerL amountContainerL;
-    GUIAmountContainerR amountContainerR;
+    public static GUIAmountContainerL amountContainerL;
+    public static GUIAmountContainerR amountContainerR;
     public static JLabel currentRoundLabel;
 
     
