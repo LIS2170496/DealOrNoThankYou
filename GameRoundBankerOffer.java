@@ -2,6 +2,9 @@ import javax.swing.JOptionPane;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import java.io.*;
+import javax.sound.sampled.*;
+
 public class GameRoundBankerOffer implements GameRound {
 
     DealOrNoThankYou currentGame;
@@ -22,9 +25,11 @@ public class GameRoundBankerOffer implements GameRound {
         //start at count 1 and value of player's case
         totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex);
         totalActiveCount = 1;
+
+
+
+        playSound();
         
-
-
         JOptionPane.showMessageDialog(null, 
             "The banker would like to speak with you", 
             "", 
@@ -151,6 +156,27 @@ public class GameRoundBankerOffer implements GameRound {
 
     public void completeRound() {
         currentGame.roundFinished();
+    }
+
+
+    public void playSound() {
+        //FIXME - add attribution
+        // phone ringing
+        // https://freesound.org/people/infobandit/sounds/29621/
+
+
+        try {
+            File file = new File("aPhoneCall.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+
+            clip.start();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+            e.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
+        }
     }
 
 }
