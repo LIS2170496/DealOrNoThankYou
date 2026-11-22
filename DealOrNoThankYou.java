@@ -8,6 +8,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
     public static GameRoundBankerOffer gameRoundBankerOffer;
     public static GameRoundFinalRound gameRoundFinalRound;
     public static boolean gameInSession = true;
+    public static String winType;
     
 
 
@@ -136,6 +137,23 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
 
         if (gameInSession) {
             startGameRound();
+        }
+        else {
+            // add game over
+
+            remove(caseContainer);
+            remove(amountContainerL);
+            remove(amountContainerR);
+            remove(casesLeftToOpenLabel);
+            remove(currentRoundLabel);
+            remove(playersChosenCaseLabel);
+
+            GUIGameOverPanel gameOverPanel = new GUIGameOverPanel(DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex));
+            add(gameOverPanel);
+
+            setVisible(true);
+            repaint();
+            
         }
     }
 

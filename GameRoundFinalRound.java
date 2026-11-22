@@ -93,6 +93,7 @@ public class GameRoundFinalRound implements GameRound {
         }
         else if (playerChoice == 1) {  //SWAP
             DealOrNoThankYou.playersChosenCaseLabel.setText("Your Case: #" + (remainingCaseIndex + 1));
+            DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex = remainingCaseIndex;
 
             JOptionPane.showMessageDialog(null, 
                 "You have chosen to SWAP cases." + 
@@ -112,20 +113,13 @@ public class GameRoundFinalRound implements GameRound {
 
 
         // TODO - SET UP FINAL ROUND PASS TO GAME OVER SCREEN
-
-
-        
-
-
-
-
-        
-
-
-
-
+        DealOrNoThankYou.winType = "STANDARD";
+        DealOrNoThankYou.gameInSession = false;
+        currentGame.roundFinished();
 
 
     }
+
+
     
 }
