@@ -41,7 +41,7 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
 
     public GUIGameOverPanelStandard (double amount, boolean winSuperDuper) {
         
-        //FIXME - add super duper sounds and colors
+        //FIXME - add super duper colors
 
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

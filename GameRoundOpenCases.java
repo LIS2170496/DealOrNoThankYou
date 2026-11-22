@@ -55,8 +55,8 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
                     try {
                         String winningCaseFileContents = 
-                            "Your originally chosen case is valued at: $" + 
-                            DealOrNoThankYou.cases.getCaseValue(i);
+                            "Your originally chosen case is valued at: " + 
+                            currencyFormat.format(DealOrNoThankYou.cases.getCaseValue(i));
 
                         File winningCaseFile = new File("TOPSECRET.txt");
                         winningCaseFile.createNewFile();

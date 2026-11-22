@@ -1,5 +1,5 @@
 public interface GameRound {
 
-    public abstract void startRound(int gameRound);
+    public abstract void startRound(int gameRound) throws FileNotFoundException;
     
 }

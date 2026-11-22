@@ -1,4 +1,7 @@
 import java.awt.event.*;
+
+import javax.swing.JOptionPane;
+
 import java.awt.*;
 
 
@@ -19,10 +22,10 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
     public DealOrNoThankYou() {
         super();
         startButton.addActionListener(this);
+
         gameRoundOpenCases = new GameRoundOpenCases(this);
         gameRoundBankerOffer = new GameRoundBankerOffer(this);
         gameRoundFinalRound = new GameRoundFinalRound(this);
-        
     }
 
 
@@ -119,6 +122,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
 
 
     public void startGameRound() {
+
         if (gameRoundNumber == 1   ||  gameRoundNumber == 2   || 
             gameRoundNumber == 4   ||  gameRoundNumber == 6   || 
             gameRoundNumber == 8   ||  gameRoundNumber == 10  || 
@@ -126,9 +130,19 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             gameRoundNumber == 16  ||  gameRoundNumber == 18) {
             gameRoundOpenCases.startRound(gameRoundNumber);
         }
+
+
         else if ((gameRoundNumber % 2) == 1  &&  gameRoundNumber < 20) {
-            gameRoundBankerOffer.startRound(gameRoundNumber);
+            try {
+                gameRoundBankerOffer.startRound(gameRoundNumber);
+            }
+            catch(FileNotFoundException fileNotFoundException) {
+                JOptionPane.showMessageDialog(null,
+                fileNotFoundException.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
+            }
         }
+
+        
         else {
             gameRoundFinalRound.startRound(gameRoundNumber);
         }

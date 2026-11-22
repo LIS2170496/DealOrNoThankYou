@@ -5,6 +5,9 @@ import java.util.Locale;
 import java.io.*;
 import javax.sound.sampled.*;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class GameRoundBankerOffer implements GameRound {
 
     DealOrNoThankYou currentGame;
@@ -17,18 +20,32 @@ public class GameRoundBankerOffer implements GameRound {
     boolean acceptOffer;
     int numCasesToOpenNextRound;
 
+    String filepathString;
+    Path soundFilePath;
+    boolean soundFileExists;
+
     public GameRoundBankerOffer(DealOrNoThankYou currentGame) {
         this.currentGame = currentGame;
+        filepathString = "aPhoneCall.wav";
+        soundFilePath = Path.of(filepathString);
+        soundFileExists = Files.exists(soundFilePath);
     }
     
-    public void startRound(int gameRound) {
+    public void startRound(int gameRound) throws FileNotFoundException {
         //start at count 1 and value of player's case
         totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex);
         totalActiveCount = 1;
 
 
 
-        playSound();
+        if (soundFileExists) {
+            playSound();
+        }
+        else {
+            throw(new FileNotFoundException(filepathString));
+        }
+
+        
         
         JOptionPane.showMessageDialog(null, 
             "The banker would like to speak with you", 
