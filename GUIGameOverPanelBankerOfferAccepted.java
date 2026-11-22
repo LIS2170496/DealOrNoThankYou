@@ -3,6 +3,10 @@ import java.util.Locale;
 import javax.swing.*;
 import java.awt.*;
 
+import java.io.*;
+import javax.sound.sampled.*;
+
+
 public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
     int panelWidth = 1100;
     int panelHeight = 550;
@@ -26,5 +30,33 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
         winAmountLabel.setFont(new Font("Arial Black", Font.BOLD, 48));
         winAmountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(winAmountLabel);
+
+        playWinSound();
+    }
+
+
+
+    @Override 
+    public void playWinSound() {
+        //FIXME - maybe this can be custom exception throw
+
+
+        //FIXME - add attribution
+        // a small applause
+        // https://freesound.org/people/Robo9418/sounds/863035/
+
+
+        try {
+            File file = new File("applauseSmall.wav");
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+
+            clip.start();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+            e.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
+        }
     }
 }
