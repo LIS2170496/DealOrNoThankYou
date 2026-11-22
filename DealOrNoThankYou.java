@@ -6,6 +6,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
 
     public static GameRoundOpenCases gameRoundOpenCases;
     public static GameRoundBankerOffer gameRoundBankerOffer;
+    public static GameRoundFinalRound gameRoundFinalRound;
     public static boolean gameInSession = true;
     
 
@@ -15,6 +16,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
         startButton.addActionListener(this);
         gameRoundOpenCases = new GameRoundOpenCases(this);
         gameRoundBankerOffer = new GameRoundBankerOffer(this);
+        gameRoundFinalRound = new GameRoundFinalRound(this);
         
     }
 
@@ -66,7 +68,8 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             add(amountContainerR, c);
 
 
-            //ROW 
+
+            //ROW 2
             c = new GridBagConstraints();
             c.gridx = 0;
             c.gridy = 1;
@@ -76,8 +79,9 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             c.insets = new Insets(0,10,10,0);
             add(casesLeftToOpenLabel, c);
 
+            
 
-            //ROW 
+            //ROW 3
             c = new GridBagConstraints();
             c.gridx = 0;
             c.gridy = 2;
@@ -86,6 +90,15 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             c.fill = GridBagConstraints.BOTH;
             c.insets = new Insets(0,10,10,0);
             add(currentRoundLabel, c);
+
+            c = new GridBagConstraints();
+            c.gridx = 1;
+            c.gridy = 2;
+            c.weightx = 0.2;
+            c.weighty = 0.1;
+            c.fill = GridBagConstraints.BOTH;
+            c.insets = new Insets(0,45,10,0);
+            add(playersChosenCaseLabel, c);
 
             
 
@@ -111,8 +124,8 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
         else if ((gameRoundNumber % 2) == 1  &&  gameRoundNumber < 20) {
             gameRoundBankerOffer.startRound(gameRoundNumber);
         }
-        else if (gameRoundNumber == 20) {
-            //TODO - ADD FINAL ROUND
+        else {
+            gameRoundFinalRound.startRound(gameRoundNumber);
         }
     }
 

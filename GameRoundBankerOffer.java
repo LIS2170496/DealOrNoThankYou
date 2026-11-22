@@ -9,6 +9,7 @@ public class GameRoundBankerOffer implements GameRound {
     int totalActiveCount;
     double currentOffer;
     NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+    Object[] options = {"DEAL", "NO THANK YOU"};
     int playerChoice;
     boolean acceptOffer;
     int numCasesToOpenNextRound;
@@ -74,34 +75,51 @@ public class GameRoundBankerOffer implements GameRound {
             case 17:
                 numCasesToOpenNextRound = 1;
                 break;
-            case 19:
-                numCasesToOpenNextRound = 1;
-                break;
-
         }
         
         
         if (numCasesToOpenNextRound == 1) {
-            playerChoice = JOptionPane.showConfirmDialog(null, 
+            playerChoice = JOptionPane.showOptionDialog(null, 
                 "The banker would like to buy your case for " + currencyFormat.format(currentOffer) + "." + 
                 "\n" + 
                 "If you decline, you will need to open " + numCasesToOpenNextRound + " case in the next round." +
                 "\n" + 
                 "\n" + 
-                "Do you accept the banker's offer?",
+                "Do you accept the banker's offer?\n",
                 "",
-                JOptionPane.YES_NO_OPTION);
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[1]);
         } 
+        else if (numCasesToOpenNextRound == 19) {
+            playerChoice = JOptionPane.showOptionDialog(null, 
+                "The banker would like to buy your case for " + currencyFormat.format(currentOffer) + "." + 
+                "\n" + 
+                "\n" + 
+                "Do you accept the banker's offer?\n", 
+                "",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[1]);
+        }
         else {
-            playerChoice = JOptionPane.showConfirmDialog(null, 
+            playerChoice = JOptionPane.showOptionDialog(null, 
                 "The banker would like to buy your case for " + currencyFormat.format(currentOffer) + "." + 
                 "\n" + 
                 "If you decline, you will need to open " + numCasesToOpenNextRound + " cases in the next round." +
                 "\n" + 
                 "\n" + 
-                "Do you accept the banker's offer?", 
+                "Do you accept the banker's offer?\n", 
                 "",
-                JOptionPane.YES_NO_OPTION);
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[1]);
         }
 
         
@@ -110,11 +128,11 @@ public class GameRoundBankerOffer implements GameRound {
 
 
         
-        if (playerChoice == JOptionPane.YES_OPTION) {
+        if (playerChoice == 0) {
             acceptOffer = true;
             DealOrNoThankYou.gameInSession = false;
         }
-        else if (playerChoice == JOptionPane.NO_OPTION) {
+        else if (playerChoice == 1) {
             acceptOffer = false;
         }
         else {

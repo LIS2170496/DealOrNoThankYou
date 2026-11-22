@@ -17,6 +17,7 @@ public class GUI extends JFrame {
     public static GUIAmountContainerR amountContainerR;
     public static JLabel currentRoundLabel;
     public static JLabel casesLeftToOpenLabel;
+    public static JLabel playersChosenCaseLabel;
 
     
 
@@ -47,6 +48,7 @@ public class GUI extends JFrame {
         amountContainerR = new GUIAmountContainerR();
         currentRoundLabel = new JLabel("Current Round: " + gameRoundNumber);
         casesLeftToOpenLabel = new JLabel("");
+        playersChosenCaseLabel = new JLabel("");
 
 
 
