@@ -130,6 +130,9 @@ public class GameRoundBankerOffer implements GameRound {
         
         if (playerChoice == 0) {
             acceptOffer = true;
+            DealOrNoThankYou.bankerOffer = currentOffer;
+            //FIX ME - update win type
+            DealOrNoThankYou.winType = "ACCEPTED BANKER OFFER";
             DealOrNoThankYou.gameInSession = false;
         }
         else if (playerChoice == 1) {

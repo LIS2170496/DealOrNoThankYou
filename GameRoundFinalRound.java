@@ -112,8 +112,16 @@ public class GameRoundFinalRound implements GameRound {
             "", JOptionPane.PLAIN_MESSAGE);
 
 
-        // TODO - SET UP FINAL ROUND PASS TO GAME OVER SCREEN
-        DealOrNoThankYou.winType = "STANDARD";
+
+
+        if (DealOrNoThankYou.cases.getCaseValue(playersCaseIndex) == 1000000.00) {
+            DealOrNoThankYou.winType = "SUPER DUPER WIN";
+            DealOrNoThankYou.superDuperWin = true;
+        }
+        else {
+            DealOrNoThankYou.winType = "STANDARD";
+        }
+
         DealOrNoThankYou.gameInSession = false;
         currentGame.roundFinished();
 

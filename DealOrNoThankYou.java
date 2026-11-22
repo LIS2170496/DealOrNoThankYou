@@ -8,7 +8,11 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
     public static GameRoundBankerOffer gameRoundBankerOffer;
     public static GameRoundFinalRound gameRoundFinalRound;
     public static boolean gameInSession = true;
+    public static double bankerOffer;
     public static String winType;
+    GUIGameOverPanel gameOverPanel;
+    public static boolean superDuperWin = false;
+
     
 
 
@@ -148,8 +152,27 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             remove(currentRoundLabel);
             remove(playersChosenCaseLabel);
 
-            GUIGameOverPanel gameOverPanel = new GUIGameOverPanel(DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex));
-            add(gameOverPanel);
+            if (winType.equals("STANDARD")) {
+                GUIGameOverPanelStandard gameOverPanel = 
+                    new GUIGameOverPanelStandard(
+                    DealOrNoThankYou.cases.getCaseValue(
+                    DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex));
+                add(gameOverPanel);
+            }
+            else if (winType.equals("ACCEPTED BANKER OFFER")) {
+                GUIGameOverPanelBankerOfferAccepted gameOverPanel = 
+                    new GUIGameOverPanelBankerOfferAccepted(bankerOffer);
+                add(gameOverPanel);
+            }
+            else if (winType.equals("SUPER DUPER WIN")) {
+                GUIGameOverPanelStandard gameOverPanel = 
+                    new GUIGameOverPanelStandard(
+                    DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex), 
+                    superDuperWin);
+                add(gameOverPanel);
+            }
+
+            
 
             setVisible(true);
             repaint();
