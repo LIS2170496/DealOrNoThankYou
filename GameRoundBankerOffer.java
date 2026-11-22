@@ -51,9 +51,6 @@ public class GameRoundBankerOffer implements GameRound {
             JOptionPane.PLAIN_MESSAGE);
 
 
-        // if (gameRound == 3) {
-        //     numCasesToOpenNextRound = 5;
-        // }
 
         switch (gameRound) {
             case 3:
@@ -154,6 +151,7 @@ public class GameRoundBankerOffer implements GameRound {
     }
 
 
+
     public void completeRound() {
         currentGame.roundFinished();
     }
@@ -163,7 +161,6 @@ public class GameRoundBankerOffer implements GameRound {
         //FIXME - add attribution
         // phone ringing
         // https://freesound.org/people/infobandit/sounds/29621/
-
 
         try {
             File file = new File("aPhoneCall.wav");
@@ -178,5 +175,6 @@ public class GameRoundBankerOffer implements GameRound {
             e.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
         }
     }
+
 
 }

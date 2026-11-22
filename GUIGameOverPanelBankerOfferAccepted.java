@@ -40,7 +40,6 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
     public void playWinSound() {
         //FIXME - maybe this can be custom exception throw
 
-
         //FIXME - add attribution
         // a small applause
         // https://freesound.org/people/Robo9418/sounds/863035/

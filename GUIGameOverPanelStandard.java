@@ -1,9 +1,11 @@
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -64,17 +66,24 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
     @Override 
     public void playWinSound() {
         //FIXME - add attribution
-        // a large applause
-        // 
+        // a large applause  
 
-
-        //FIXME - FIND REPLACEMENT FOR THIS FILE
         try {
             File file = new File("applauseLarge.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-
+            AudioFormat sourceFormat = audioStream.getFormat();
+            AudioFormat targetFormat = new AudioFormat(
+                AudioFormat.Encoding.PCM_SIGNED, 
+                sourceFormat.getSampleRate(), 
+                16, 
+                sourceFormat.getChannels(),
+                sourceFormat.getChannels() * 2,
+                sourceFormat.getSampleRate(),
+                false);
+            AudioInputStream convertedStream = AudioSystem.getAudioInputStream(targetFormat, audioStream);
+            DataLine.Info info = new DataLine.Info(Clip.class, targetFormat);
+            Clip clip = (Clip) AudioSystem.getLine(info);
+            clip.open(convertedStream);
             clip.start();
         }
         catch (Exception e) {
@@ -86,13 +95,23 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
     public void playWinSoundSuperDuper() {
         //FIXME - add attribution
         // a super duper win
-        // https://freesound.org/people/szegvari/sounds/595384/
+
         try {
             File file = new File("aSuperDuperWin.wav");
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
-
+            AudioFormat sourceFormat = audioStream.getFormat();
+            AudioFormat targetFormat = new AudioFormat(
+                AudioFormat.Encoding.PCM_SIGNED, 
+                sourceFormat.getSampleRate(), 
+                16, 
+                sourceFormat.getChannels(),
+                sourceFormat.getChannels() * 2,
+                sourceFormat.getSampleRate(),
+                false);
+            AudioInputStream convertedStream = AudioSystem.getAudioInputStream(targetFormat, audioStream);
+            DataLine.Info info = new DataLine.Info(Clip.class, targetFormat);
+            Clip clip = (Clip) AudioSystem.getLine(info);
+            clip.open(convertedStream);
             clip.start();
         }
         catch (Exception e) {
@@ -100,5 +119,4 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
             e.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
         }
     }
-    
 }
