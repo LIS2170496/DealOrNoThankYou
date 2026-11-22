@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import javax.sound.sampled.*;
 
 
@@ -11,10 +14,17 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
     int panelWidth = 1100;
     int panelHeight = 550;
 
-    public GUIGameOverPanelBankerOfferAccepted(double amount) {
+    String filepathString;
+    Path soundFilePath;
+    boolean soundFileExists;
+
+    public GUIGameOverPanelBankerOfferAccepted(double amount) throws FileNotFoundException{
 
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        filepathString = "applauseSmall.wav";
+        soundFilePath = Path.of(filepathString);
+        soundFileExists = Files.exists(soundFilePath);
 
         double winAmount = amount;
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
@@ -31,22 +41,25 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
         winAmountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(winAmountLabel);
 
-        playWinSound();
+        if (soundFileExists) {
+            playWinSound();
+        }
+        else {
+            throw(new FileNotFoundException(filepathString));
+        }
     }
 
 
 
     @Override 
     public void playWinSound() {
-        //FIXME - maybe this can be custom exception throw
-
         //FIXME - add attribution
         // a small applause
         // https://freesound.org/people/Robo9418/sounds/863035/
 
 
         try {
-            File file = new File("applauseSmall.wav");
+            File file = new File(filepathString);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);

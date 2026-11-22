@@ -180,7 +180,7 @@ public class GameRoundBankerOffer implements GameRound {
         // https://freesound.org/people/infobandit/sounds/29621/
 
         try {
-            File file = new File("aPhoneCall.wav");
+            File file = new File(filepathString);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);

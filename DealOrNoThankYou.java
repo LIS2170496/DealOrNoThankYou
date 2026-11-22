@@ -122,29 +122,24 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
 
 
     public void startGameRound() {
-
-        if (gameRoundNumber == 1   ||  gameRoundNumber == 2   || 
-            gameRoundNumber == 4   ||  gameRoundNumber == 6   || 
-            gameRoundNumber == 8   ||  gameRoundNumber == 10  || 
-            gameRoundNumber == 12  ||  gameRoundNumber == 14  || 
-            gameRoundNumber == 16  ||  gameRoundNumber == 18) {
-            gameRoundOpenCases.startRound(gameRoundNumber);
-        }
-
-
-        else if ((gameRoundNumber % 2) == 1  &&  gameRoundNumber < 20) {
-            try {
+        try {
+            if (gameRoundNumber == 1   ||  gameRoundNumber == 2   || 
+                gameRoundNumber == 4   ||  gameRoundNumber == 6   || 
+                gameRoundNumber == 8   ||  gameRoundNumber == 10  || 
+                gameRoundNumber == 12  ||  gameRoundNumber == 14  || 
+                gameRoundNumber == 16  ||  gameRoundNumber == 18) {
+                gameRoundOpenCases.startRound(gameRoundNumber);
+            }
+            else if ((gameRoundNumber % 2) == 1  &&  gameRoundNumber < 20) {
                 gameRoundBankerOffer.startRound(gameRoundNumber);
             }
-            catch(FileNotFoundException fileNotFoundException) {
-                JOptionPane.showMessageDialog(null,
-                fileNotFoundException.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
+            else {
+                gameRoundFinalRound.startRound(gameRoundNumber);
             }
         }
-
-        
-        else {
-            gameRoundFinalRound.startRound(gameRoundNumber);
+        catch(FileNotFoundException fileNotFoundException) {
+            JOptionPane.showMessageDialog(null,
+                fileNotFoundException.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
         }
     }
 
@@ -166,24 +161,31 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             remove(currentRoundLabel);
             remove(playersChosenCaseLabel);
 
-            if (winType.equals("STANDARD")) {
-                GUIGameOverPanelStandard gameOverPanel = 
-                    new GUIGameOverPanelStandard(
-                    DealOrNoThankYou.cases.getCaseValue(
-                    DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex));
-                add(gameOverPanel);
+
+            try {
+                if (winType.equals("STANDARD")) {
+                    GUIGameOverPanelStandard gameOverPanel = 
+                        new GUIGameOverPanelStandard(
+                        DealOrNoThankYou.cases.getCaseValue(
+                        DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex));
+                    add(gameOverPanel);
+                }
+                else if (winType.equals("ACCEPTED BANKER OFFER")) {
+                    GUIGameOverPanelBankerOfferAccepted gameOverPanel = 
+                        new GUIGameOverPanelBankerOfferAccepted(bankerOffer);
+                    add(gameOverPanel);
+                }
+                else if (winType.equals("SUPER DUPER WIN")) {
+                    GUIGameOverPanelStandard gameOverPanel = 
+                        new GUIGameOverPanelStandard(
+                        DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex), 
+                        superDuperWin);
+                    add(gameOverPanel);
+                }
             }
-            else if (winType.equals("ACCEPTED BANKER OFFER")) {
-                GUIGameOverPanelBankerOfferAccepted gameOverPanel = 
-                    new GUIGameOverPanelBankerOfferAccepted(bankerOffer);
-                add(gameOverPanel);
-            }
-            else if (winType.equals("SUPER DUPER WIN")) {
-                GUIGameOverPanelStandard gameOverPanel = 
-                    new GUIGameOverPanelStandard(
-                    DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex), 
-                    superDuperWin);
-                add(gameOverPanel);
+            catch(FileNotFoundException fileNotFoundException) {
+                JOptionPane.showMessageDialog(null,
+                    fileNotFoundException.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
             }
 
             

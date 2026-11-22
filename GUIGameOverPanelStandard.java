@@ -9,15 +9,24 @@ import javax.sound.sampled.DataLine;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class GUIGameOverPanelStandard extends GUIGameOverPanel {
     int panelWidth = 1100;
     int panelHeight = 550;
 
-    public GUIGameOverPanelStandard (double amount) {
+    String filepathString;
+    Path soundFilePath;
+    boolean soundFileExists;
+
+    public GUIGameOverPanelStandard (double amount) throws FileNotFoundException {
 
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        filepathString = "applauseLarge.wav";
+        soundFilePath = Path.of(filepathString);
+        soundFileExists = Files.exists(soundFilePath);
 
         double winAmount = amount;
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
@@ -34,17 +43,25 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
         winAmountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(winAmountLabel);
 
-        playWinSound();
+        if (soundFileExists) {
+            playWinSound();
+        }
+        else {
+            throw(new FileNotFoundException(filepathString));
+        }
     }
 
 
 
-    public GUIGameOverPanelStandard (double amount, boolean winSuperDuper) {
+    public GUIGameOverPanelStandard (double amount, boolean winSuperDuper) throws FileNotFoundException {
         
         //FIXME - add super duper colors
 
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        filepathString = "aSuperDuperWin.wav";
+        soundFilePath = Path.of(filepathString);
+        soundFileExists = Files.exists(soundFilePath);
 
         double winAmount = amount;
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
@@ -59,7 +76,12 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
         winAmountLabel.setFont(new Font("Arial Black", Font.BOLD, 48));
         add(winAmountLabel);
 
-        playWinSoundSuperDuper();
+        if (soundFileExists) {
+            playWinSoundSuperDuper();
+        }
+        else {
+            throw(new FileNotFoundException(filepathString));
+        }
     }
 
 
