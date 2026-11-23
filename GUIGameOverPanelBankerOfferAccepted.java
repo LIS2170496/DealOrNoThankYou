@@ -53,10 +53,6 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
 
     @Override 
     public void playWinSound() {
-        //FIXME - add attribution
-        // a small applause
-        // https://freesound.org/people/Robo9418/sounds/863035/
-
 
         try {
             File file = new File(filepathString);

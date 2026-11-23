@@ -150,7 +150,6 @@ public class GameRoundBankerOffer implements GameRound {
         if (playerChoice == 0) {
             acceptOffer = true;
             DealOrNoThankYou.bankerOffer = currentOffer;
-            //FIX ME - update win type
             DealOrNoThankYou.winType = "ACCEPTED BANKER OFFER";
             DealOrNoThankYou.gameInSession = false;
         }
@@ -175,9 +174,6 @@ public class GameRoundBankerOffer implements GameRound {
 
 
     public void playSound() {
-        //FIXME - add attribution
-        // phone ringing
-        // https://freesound.org/people/infobandit/sounds/29621/
 
         try {
             File file = new File(filepathString);

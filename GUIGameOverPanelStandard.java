@@ -87,8 +87,6 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
 
     @Override 
     public void playWinSound() {
-        //FIXME - add attribution
-        // a large applause  
 
         try {
             File file = new File("applauseLarge.wav");
@@ -115,8 +113,6 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
     }
 
     public void playWinSoundSuperDuper() {
-        //FIXME - add attribution
-        // a super duper win
 
         try {
             File file = new File("aSuperDuperWin.wav");

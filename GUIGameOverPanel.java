@@ -17,9 +17,6 @@ public class GUIGameOverPanel extends JPanel {
     }
 
     public void playWinSound() {
-        //FIXME - add attribution
-        // a win sound
-        // https://freesound.org/people/Robinhood76/sounds/791980/
 
         try {
             File file = new File("aWinSound.wav");
