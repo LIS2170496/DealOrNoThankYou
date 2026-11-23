@@ -25,6 +25,8 @@ public class GUI extends JFrame {
         super("Deal or No Thank You");
         setSize(frameWidth, frameHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //REQUIREMENT 8 - LAYOUT MANAGER WITH A JFRAME
         this.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         

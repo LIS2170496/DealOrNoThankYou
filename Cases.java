@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Cases {
 
+    //REQUIREMENT 11 - LINKED LIST
     LinkedList<Double> amountsList = new LinkedList<Double>();
     record Case(double amount, String status) {}
     Case[] gameplayCases = new Case[26];
@@ -10,7 +11,7 @@ public class Cases {
 
 
     Cases () {
-
+        //REQUIREMENT 11 - LINKED LIST
         amountsList.add(0.01);
         amountsList.add(1.00);
         amountsList.add(5.00);

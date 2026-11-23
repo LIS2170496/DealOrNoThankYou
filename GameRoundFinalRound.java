@@ -5,6 +5,8 @@ import java.util.Locale;
 
 public class GameRoundFinalRound implements GameRound {
 
+    //REQUIREMENT 4 - INTERFACE IMPLEMENTED
+
     DealOrNoThankYou currentGame;
 
     public GameRoundFinalRound(DealOrNoThankYou currentGame) {

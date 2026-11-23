@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
+//REQUIREMENT 9 - SWING ELEMENT (JPANEL)
 public class GUIAmountPanel extends JPanel {
     
     int panelWidth = 150;

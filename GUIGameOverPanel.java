@@ -6,6 +6,8 @@ import java.awt.*;
 import java.io.File;
 
 public class GUIGameOverPanel extends JPanel {
+    //REQUIREMENT 2 - PARENT CLASS
+    
     int panelWidth = 1100;
     int panelHeight = 550;
 

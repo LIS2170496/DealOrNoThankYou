@@ -10,6 +10,8 @@ import java.nio.file.Path;
 
 public class GameRoundBankerOffer implements GameRound {
 
+    //REQUIREMENT 4 - INTERFACE IMPLEMENTED
+
     DealOrNoThankYou currentGame;
     double totalActiveAmount = 0;
     int totalActiveCount;

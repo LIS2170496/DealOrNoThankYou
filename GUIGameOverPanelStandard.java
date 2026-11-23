@@ -13,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class GUIGameOverPanelStandard extends GUIGameOverPanel {
+    //REQUIREMENT 2 - PARENT CLASS EXTENDED
+
     int panelWidth = 1100;
     int panelHeight = 550;
 
@@ -53,6 +55,7 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
 
 
 
+    //REQUIREMENT 1 - OVERLOADED CONSTRUCTOR
     public GUIGameOverPanelStandard (double amount, boolean winSuperDuper) throws FileNotFoundException {
         
         //FIXME - add super duper colors
@@ -85,6 +88,7 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
     }
 
 
+    //REQUIREMENT 3 - OVERRIDDEN METHOD
     @Override 
     public void playWinSound() {
 

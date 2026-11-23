@@ -43,7 +43,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
             remove(startButton);
             repaint();
 
-
+            //REQUIREMENT 8 - LAYOUT MANAGER WITH A JFRAME
             GridBagLayout playingLayout = new GridBagLayout();
             setLayout(playingLayout);
             GridBagConstraints c = new GridBagConstraints();
@@ -137,6 +137,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
                 gameRoundFinalRound.startRound(gameRoundNumber);
             }
         }
+        //REQUIREMENT 6 - CATCH CUSTOM EXCEPTION
         catch(FileNotFoundException fileNotFoundException) {
             JOptionPane.showMessageDialog(null,
                 fileNotFoundException.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
@@ -205,7 +206,7 @@ public class DealOrNoThankYou extends GUI implements ActionListener {
         DealOrNoThankYou myGame = new DealOrNoThankYou();
         myGame.setVisible(true);
 
-        //this sets the frame to open in center of screen
+        //this sets to open in center of screen
         myGame.setLocationRelativeTo(null);
     }
 

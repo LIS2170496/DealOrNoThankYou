@@ -13,6 +13,7 @@ public class GUIWelcomePanel extends JPanel {
     GUIWelcomePanel() {
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
 
+        //REQUIREMENT 10 - IMAGE
         try {
             backgroundImage = ImageIO.read(new File("logo.png"));
         }

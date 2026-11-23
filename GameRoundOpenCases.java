@@ -8,6 +8,8 @@ import java.awt.Color;
 
 public class GameRoundOpenCases implements GameRound, ActionListener {
 
+    //REQUIREMENT 4 - INTERFACE IMPLEMENTED
+
     int numCasesToOpen;
     int numCasesLeftToOpen;
     int numCasesOpened;
@@ -38,6 +40,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
                 DealOrNoThankYou.cases.inactivateCase(i);
 
+                //REQUIREMENT 9 - SWING ELEMENT (JOPTIONPANE)
                 JOptionPane.showMessageDialog(null, 
                     "You chose case #" + (i + 1), 
                     "", JOptionPane.PLAIN_MESSAGE);
@@ -45,7 +48,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
 
 
 
-                // For round 1, write case value to file
+                //REQUIREMENT 7 - WRITE TO A FILE
                 if (DealOrNoThankYou.gameRoundNumber == 1) {
                     chosenCaseIndex = i;
                     //DealOrNoThankYou.gameRoundBankerOffer.totalActiveAmount = DealOrNoThankYou.cases.getCaseValue(i);

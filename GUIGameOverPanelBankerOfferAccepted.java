@@ -13,6 +13,8 @@ import javax.sound.sampled.*;
 
 
 public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
+    //REQUIREMENT 2 - PARENT CLASS EXTENDED
+
     int panelWidth = 1100;
     int panelHeight = 550;
 
@@ -21,6 +23,7 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
     boolean soundFileExists;
     String originalCaseString = null;
 
+    //REQUIREMENT 6 - METHOD THROWS CUSTOM EXCEPTION
     public GUIGameOverPanelBankerOfferAccepted(double amount) throws FileNotFoundException{
 
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
@@ -45,7 +48,7 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
         add(winAmountLabel);
 
 
-
+        //REQUIREMENT 7 - READ FROM A FILE
         try {
             InputStream incoming = null;
             incoming = Files.newInputStream(DealOrNoThankYou.gameRoundOpenCases.winningCaseFile.toPath());
@@ -77,7 +80,7 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
 
     @Override 
     public void playWinSound() {
-
+        //REQUIREMENT 10 - AUDIO
         try {
             File file = new File(filepathString);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
