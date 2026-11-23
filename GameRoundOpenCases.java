@@ -16,6 +16,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
     NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
     int chosenCaseIndex;
     int playersChoice;
+    File winningCaseFile;
 
 
     public GameRoundOpenCases(DealOrNoThankYou currentGame) {
@@ -58,7 +59,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
                             "Your originally chosen case is valued at: " + 
                             currencyFormat.format(DealOrNoThankYou.cases.getCaseValue(i));
 
-                        File winningCaseFile = new File("TOPSECRET.txt");
+                        winningCaseFile = new File("TOPSECRET.txt");
                         winningCaseFile.createNewFile();
                         FileOutputStream outgoing = new FileOutputStream(winningCaseFile);
 

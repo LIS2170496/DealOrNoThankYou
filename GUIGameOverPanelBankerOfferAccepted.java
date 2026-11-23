@@ -10,6 +10,8 @@ import java.nio.file.Path;
 import javax.sound.sampled.*;
 
 
+
+
 public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
     int panelWidth = 1100;
     int panelHeight = 550;
@@ -17,6 +19,7 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
     String filepathString;
     Path soundFilePath;
     boolean soundFileExists;
+    String originalCaseString = null;
 
     public GUIGameOverPanelBankerOfferAccepted(double amount) throws FileNotFoundException{
 
@@ -40,6 +43,27 @@ public class GUIGameOverPanelBankerOfferAccepted extends GUIGameOverPanel {
         winAmountLabel.setFont(new Font("Arial Black", Font.BOLD, 48));
         winAmountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(winAmountLabel);
+
+
+
+        try {
+            InputStream incoming = null;
+            incoming = Files.newInputStream(DealOrNoThankYou.gameRoundOpenCases.winningCaseFile.toPath());
+            BufferedReader reader = new BufferedReader(new InputStreamReader(incoming));
+            originalCaseString = reader.readLine();
+            reader.close();
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(null,
+            e.getMessage() ,"ERROR", JOptionPane.PLAIN_MESSAGE);
+        }
+
+        JLabel originalCaseLabel = new JLabel(originalCaseString);
+        originalCaseLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        originalCaseLabel.setBorder(BorderFactory.createEmptyBorder(250,0,0,0));
+        add(originalCaseLabel);
+
+
 
         if (soundFileExists) {
             playWinSound();
