@@ -156,7 +156,15 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
         if (gameRound == 1) {
             //player chooses their case
             JOptionPane.showMessageDialog(null, 
-                "Pick your case", 
+                "<html><div style='text-align: center;'>Welcome to <br>DEAL OR NO THANK YOU" + 
+                "<br><br>In this game, you will have a chance to win $1,000,000!" + 
+                "<br><br>There are 26 cases on the board." + 
+                "<br>Each contains a different amount ranging from $0.01 to $1,000,000" +
+                "<br><br>First, click on any case." +
+                "<br>This case will be in your posession until the end of the game." +
+                "<br><br>In the following rounds, you will have the opportunity to pick cases to eliminate." + 
+                "<br>Those cases will be opened to reveal the amounts that are NOT in your chosen case." + 
+                "<br><br>Ready to begin?</div></html>",
                 "Welcome", 
                 JOptionPane.PLAIN_MESSAGE);
 
@@ -171,7 +179,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
             DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
-                "Pick " + numCasesToOpen + " cases", 
+                "Pick " + numCasesToOpen + " cases to eliminate", 
                 "", 
                 JOptionPane.PLAIN_MESSAGE);
         }
@@ -182,7 +190,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
             DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
-                "Pick " + numCasesToOpen + " cases", 
+                "Pick " + numCasesToOpen + " cases to eliminate", 
                 "", 
                 JOptionPane.PLAIN_MESSAGE);
         }
@@ -193,7 +201,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
             DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
-                "Pick " + numCasesToOpen + " cases", 
+                "Pick " + numCasesToOpen + " cases to eliminate", 
                 "", 
                 JOptionPane.PLAIN_MESSAGE);
         }
@@ -204,7 +212,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
             DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
-                "Pick " + numCasesToOpen + " cases", 
+                "Pick " + numCasesToOpen + " cases to eliminate", 
                 "", 
                 JOptionPane.PLAIN_MESSAGE);
         }
@@ -215,7 +223,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
             DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
-                "Pick " + numCasesToOpen + " cases", 
+                "Pick " + numCasesToOpen + " cases to eliminate", 
                 "", 
                 JOptionPane.PLAIN_MESSAGE);
         }
@@ -226,7 +234,7 @@ public class GameRoundOpenCases implements GameRound, ActionListener {
             DealOrNoThankYou.casesLeftToOpenLabel.setText("Cases Left to Open: " + numCasesLeftToOpen);
 
             JOptionPane.showMessageDialog(null, 
-                "Pick " + numCasesToOpen + " case", 
+                "Pick " + numCasesToOpen + " case to eliminate", 
                 "", 
                 JOptionPane.PLAIN_MESSAGE);
         }
