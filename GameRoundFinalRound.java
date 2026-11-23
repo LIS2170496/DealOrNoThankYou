@@ -114,7 +114,7 @@ public class GameRoundFinalRound implements GameRound {
 
 
 
-        if (DealOrNoThankYou.cases.getCaseValue(playersCaseIndex) == 1000000.00) {
+        if (DealOrNoThankYou.cases.getCaseValue(DealOrNoThankYou.gameRoundOpenCases.chosenCaseIndex) == 1000000.00) {
             DealOrNoThankYou.winType = "SUPER DUPER WIN";
             DealOrNoThankYou.superDuperWin = true;
         }
