@@ -57,8 +57,6 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
 
     //REQUIREMENT 1 - OVERLOADED CONSTRUCTOR
     public GUIGameOverPanelStandard (double amount, boolean winSuperDuper) throws FileNotFoundException {
-        
-        //FIXME - add super duper colors
 
         this.setPreferredSize(new Dimension(panelWidth, panelHeight));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -68,7 +66,7 @@ public class GUIGameOverPanelStandard extends GUIGameOverPanel {
 
         double winAmount = amount;
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
-        String congratulationsString = "Congratulations!";
+        String congratulationsString = "Congratulations!!!";
         String winAmountString = "You have won " + currencyFormat.format(winAmount);
 
         JLabel congratulationsLabel = new JLabel(congratulationsString);
